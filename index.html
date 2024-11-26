@@ -238,6 +238,17 @@
 
     </div>
 
+<script>
+  const closeButtons = document.querySelectorAll('.window-button.close');
+
+  closeButtons.forEach(closeButton => {
+    closeButton.addEventListener('click', function() {
+      this.parentElement.parentElement.parentElement.remove(); // Removes the entire window element
+    });
+  });
+</script>
+
+
     <script>
         function getRandomPosition(element, maxTop, maxLeft) {
             const viewportWidth = window.innerWidth;
