@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cam's Cyber Space!</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <body style="background-image: url('https://i.pinimg.com/originals/c5/9d/ee/c59dee0e63dd759fc541992e300d089f.gif'); background-repeat: repeat; background-size: cover;">
+    <style>
+        body {
+            font-family: 'PixelOperator', monospace;
+            background-color: #000;
+            color: #ddd;
+            overflow: hidden;
+        }
+
+        .window {
+            background-color: #111;
+            border: 2px solid #444;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            position: absolute;
+            resize: both;
+            overflow: auto;
+        }
+
+        .window-title {
+            background-color: #222;
+            padding: 5px 10px;
+            cursor: move;
+            user-select: none;
+        }
+
+        .window-controls {
+            position: absolute;
+            top: 7px;
+            right: 10px;
+        }
+
+        .window-button {
+            width: 12px;
+            height: 12px;
+            margin: 0 2px;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .window-button:hover {
+            background-color: #333;
+        }
+
+        .ascii-art {
+            font-family: 'PixelOperator', monospace;
+            font-size: 12px;
+            line-height: 1;
+            white-space: pre;
+        }
+
+        .spotify-embed iframe {
+            width: 100%;
+            height: 100px;
+            border: none;
+        }
+
+        .friend-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 1px solid #444;
+        }
+
+        @font-face {
+            font-family: 'PixelOperator';
+            src: url('./PixelOperator.ttf') format('truetype');
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flex flex-wrap justify-center gap-8 p-8 h-screen">
+
+        <div class="window w-64 absolute" id="aboutWindow">
+            <div class="window-title">About Me
+                <div class="window-controls">
+                    <div class="window-button minimize">—</div>
+                    <div class="window-button maximize">□</div>
+                    <div class="window-button close">✖</div>
+                </div>
+            </div>
+            <div class="mt-5">
+                <p>Hey, I'm Cam! This is my Profile Page. :]</p>
+            </div>
+        </div>
+
+        <div class="window w-48 absolute" id="profileWindow">
+            <div class="window-title">Profile
+                <div class="window-controls">
+                    <div class="window-button minimize">—</div>
+                    <div class="window-button maximize">□</div>
+                    <div class="window-button close">✖</div>
+                </div>
+            </div>
+            <div class="mt-5 flex flex-col items-center">
+                <img src="https://cdn.discordapp.com/avatars/1147695380222455828/3ca8c1c278eb78210ce1a36dfcecdc9b.webp?size=1024&format=webp" alt="Profile Picture" class="friend-img">
+                <p>Cam</p>
+                <p style="font-size: 12px; color: gray;">Cyquna</p>
+            </div>
+        </div>
+
+        <div class="window w-96 absolute" id="interestsWindow">
+            <div class="window-title">Interests
+                <div class="window-controls">
+                    <div class="window-button minimize">—</div>
+                    <div class="window-button maximize">□</div>
+                    <div class="window-button close">✖</div>
+                </div>
+            </div>
+            <div class="mt-5">
+                <p>Music, anime, video games, and more...</p>
+            </div>
+        </div>
+
+        <div class="window w-96 absolute" id="musicWindow">
+            <div class="window-title">Fav Songs !!
+                <div class="window-controls">
+                    <div class="window-button minimize">—</div>
+                    <div class="window-button maximize">□</div>
+                    <div class="window-button close">✖</div>
+                </div>
+            </div>
+            <div class="mt-5">
+                <div class="spotify-embed mb-4">
+                    <iframe src="https://open.spotify.com/embed/track/0vB4pHzanZWUMprHnlsafz?utm_source=generator" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                </div>
+                <div class="spotify-embed mb-4">
+                    <iframe src="https://open.spotify.com/embed/album/1CACAgGdb3W2W8au1Jc0RK?utm_source=generator" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                </div>
+                <div class="spotify-embed">
+                    <iframe src="https://open.spotify.com/embed/track/6oZ7fDtbmdX8VmB3Z1hhPX?utm_source=generator" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="window w-64 absolute" id="socialsWindow">
+            <div class="window-title">My Links >3-
+                <div class="window-controls">
+                    <div class="window-button minimize">—</div>
+                    <div class="window-button maximize">□</div>
+                    <div class="window-button close">✖</div>
+                </div>
+            </div>
+            <div class="mt-5">
+                <ul>
+                    <li><a href="https://instagram.com/_cyquna" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                    <li><a href="https://www.tiktok.com/@cyquna" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="window w-96 absolute" id="friendsWindow">
+            <div class="window-title">BESTIES ! >o<
+                <div class="window-controls">
+                    <div class="window-button minimize">—</div>
+                    <div class="window-button maximize">□</div>
+                    <div class="window-button close">✖</div>
+                </div>
+            </div>
+            <div class="mt-5">
+                <div class="flex items-center mb-4">
+                    <img src="https://cdn.discordapp.com/avatars/767875474532728832/e208a98367108f86b5a0c8addfef6ecf.webp?size=1024&format=webp" alt="Friend 1" class="friend-img">
+                    <a href="https://www.instagram.com/sal3m.0nline/" target="_blank">squag (MY BOYFRIEND)</a>
+                </div>
+                <div class="flex items-center mb-4">
+                    <img src="https://cdn.discordapp.com/avatars/541370981785010196/5cf9cd7757e647338303e43d7fd00afa.webp?size=1024&format=webp" alt="Friend 2" class="friend-img">
+                    <a href="https://www.instagram.com/sal3m.0nline/" target="_blank">𝕾𝖆𝖑𝖊𝖒☣</a>
+                </div>
+                <div class="flex items-center">
+                    <img src="https://cdn.discordapp.com/avatars/609074458434600970/e34b25b829d9aec4d865961fd011c7e5.webp?size=1024&format=webp" alt="Friend 3" class="friend-img">
+                    <a href="about:blank" target="_blank">Broken Tummy Box</a>
+                </div>
+            </div>
+        </div>
+
+<div class="window w-96 absolute" id="friendsWindow">
+            <div class="window-title">Notepad
+                <div class="window-controls">
+                    <div class="window-button minimize">—</div>
+                    <div class="window-button maximize">□</div>
+                    <div class="window-button close">✖</div>
+                </div>
+            </div>
+            <div class="mt-5">
+              <textarea style="width: 100%; height: 100%; background-color: #111; color: white;"></textarea>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function getRandomPosition(element, maxTop, maxLeft) {
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const elementWidth = element.offsetWidth;
+            const elementHeight = element.offsetHeight;
+
+            const randomTop = Math.max(0, Math.min(maxTop, Math.random() * (viewportHeight - elementHeight)));
+            const randomLeft = Math.max(0, Math.min(maxLeft, Math.random() * (viewportWidth - elementWidth)));
+
+            element.style.top = randomTop + 'px';
+            element.style.left = randomLeft + 'px';
+        }
+
+        const windows = document.querySelectorAll('.window');
+
+        windows.forEach(window => {
+            getRandomPosition(window, window.offsetHeight, window.offsetWidth);
+            let isDragging = false;
+            let offsetX, offsetY;
+            let startWidth, startHeight;
+
+            window.querySelector('.window-title').addEventListener('mousedown', (e) => {
+                isDragging = true;
+                offsetX = window.offsetLeft - e.clientX;
+                offsetY = window.offsetTop - e.clientY;
+                startWidth = window.offsetWidth;
+                startHeight = window.offsetHeight;
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                window.style.left = (e.clientX + offsetX) + 'px';
+                window.style.top = (e.clientY + offsetY) + 'px';
+                // Prevents accidental resizing during drag
+            });
+
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+        });
+    </script>
+
+</body>
+</html>
