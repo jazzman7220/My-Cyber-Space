@@ -46,6 +46,21 @@
         </div>
 </template>
 
+<template id="games-window-template">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 100%; height: 100%;">
+            <div class="window-title">Games
+                <div class="window-controls">
+                    <div class="window-button minimize">—</div>
+                    <div class="window-button maximize">□</div>
+                    <div class="window-button close">✖</div>
+                </div>
+            </div>
+            <div class="mt-5" style="height: 90%;">
+              <iframe src="https://binbashbanana.github.io/gfiles/list.html" width="100%" height="100%"></iframe>
+            </div>
+        </div>
+</template>
+
 <button onclick="createGoogleWindow()" style="display: flex; align-items: center; border: 1px solid black;">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/480px-Google_%22G%22_logo.svg.png" style="height: 20px; margin-right: 5px;">
   Google
@@ -53,8 +68,68 @@
 <button onclick="createflappyWindow()" style="display: flex; align-items: center; border: 1px solid black;">
   <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0a/Flappy_Bird_icon.png/220px-Flappy_Bird_icon.png" style="height: 20px; margin-right: 5px;">
   Flappy Bird
+</button> <br>
+<button onclick="creategamesWindow()" style="display: flex; align-items: center; border: 1px solid black;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Video-Game-Controller-Icon-IDV-green.svg/120px-Video-Game-Controller-Icon-IDV-green.svg.png" style="height: 20px; margin-right: 5px;">
+  Games
 </button>
 </div>
+
+<script>
+  function creategamesWindow() {
+    const template = document.getElementById('games-window-template');
+    const clone = template.content.cloneNode(true);
+    const window = clone.querySelector('.window');
+
+    // Append the cloned window to the body
+    document.body.appendChild(window);
+
+    // Add drag and drop functionality
+    let isDragging = false;
+    let offsetX, offsetY;
+    let startWidth, startHeight;
+
+    window.querySelector('.window-title').addEventListener('mousedown', (e) => {
+      isDragging = true;
+      offsetX = window.offsetLeft - e.clientX;
+      offsetY = window.offsetTop - e.clientY;
+      startWidth = window.offsetWidth;
+      startHeight = window.offsetHeight;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      window.style.left = (e.clientX + offsetX) + 'px';
+      window.style.top = (e.clientY + offsetY) + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    // Add minimize, maximize, and close button functionality
+    const minimizeButton = window.querySelector('.minimize');
+    const maximizeButton = window.querySelector('.maximize');
+    const closeButton = window.querySelector('.close');
+
+    minimizeButton.addEventListener('click', () => {
+      // Implement minimize functionality (e.g., hide the window)
+    });
+
+    maximizeButton.addEventListener('click', () => {
+      // Implement maximize functionality (e.g., make the window full screen)
+    });
+
+    closeButton.addEventListener('click', () => {
+      window.remove();
+    });
+
+    // Trigger the window positioning and resizing logic
+    getRandomPosition(window, window.offsetHeight, window.offsetWidth);
+  }
+
+  // ... (existing getRandomPosition function)
+</script>
 
 <script>
   function createflappyWindow() {
