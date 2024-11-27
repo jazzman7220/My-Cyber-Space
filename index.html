@@ -61,6 +61,21 @@
         </div>
 </template>
 
+<template id="minecraft-window-template">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 100%; height: 100%;">
+            <div class="window-title">Minecraft
+                <div class="window-controls">
+                    <div class="window-button minimize">—</div>
+                    <div class="window-button maximize">□</div>
+                    <div class="window-button close">✖</div>
+                </div>
+            </div>
+            <div class="mt-5" style="height: 90%;">
+              <iframe src="https://eaglercraft.q13x.com/" width="100%" height="100%"></iframe>
+            </div>
+        </div>
+</template>
+
 <button onclick="createGoogleWindow()" style="display: flex; align-items: center; border: 1px solid black;">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/480px-Google_%22G%22_logo.svg.png" style="height: 20px; margin-right: 5px;">
   Google
@@ -72,8 +87,68 @@
 <button onclick="creategamesWindow()" style="display: flex; align-items: center; border: 1px solid black;">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Video-Game-Controller-Icon-IDV-green.svg/120px-Video-Game-Controller-Icon-IDV-green.svg.png" style="height: 20px; margin-right: 5px;">
   Games
+</button> <br>
+<button onclick="createminecraftWindow()" style="display: flex; align-items: center; border: 1px solid black;">
+  <img src="https://eaglercraft.q13x.com/favicon.ico" style="height: 20px; margin-right: 5px;">
+  Minecraft 1.8.8
 </button>
 </div>
+
+<script>
+  function createminecraftWindow() {
+    const template = document.getElementById('minecraft-window-template');
+    const clone = template.content.cloneNode(true);
+    const window = clone.querySelector('.window');
+
+    // Append the cloned window to the body
+    document.body.appendChild(window);
+
+    // Add drag and drop functionality
+    let isDragging = false;
+    let offsetX, offsetY;
+    let startWidth, startHeight;
+
+    window.querySelector('.window-title').addEventListener('mousedown', (e) => {
+      isDragging = true;
+      offsetX = window.offsetLeft - e.clientX;
+      offsetY = window.offsetTop - e.clientY;
+      startWidth = window.offsetWidth;
+      startHeight = window.offsetHeight;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      window.style.left = (e.clientX + offsetX) + 'px';
+      window.style.top = (e.clientY + offsetY) + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    // Add minimize, maximize, and close button functionality
+    const minimizeButton = window.querySelector('.minimize');
+    const maximizeButton = window.querySelector('.maximize');
+    const closeButton = window.querySelector('.close');
+
+    minimizeButton.addEventListener('click', () => {
+      // Implement minimize functionality (e.g., hide the window)
+    });
+
+    maximizeButton.addEventListener('click', () => {
+      // Implement maximize functionality (e.g., make the window full screen)
+    });
+
+    closeButton.addEventListener('click', () => {
+      window.remove();
+    });
+
+    // Trigger the window positioning and resizing logic
+    getRandomPosition(window, window.offsetHeight, window.offsetWidth);
+  }
+
+  // ... (existing getRandomPosition function)
+</script>
 
 <script>
   function creategamesWindow() {
@@ -412,21 +487,8 @@ displayTime();
             </div>
         </div>
 
-        <div class="window w-96 absolute" id="interestsWindow" style="width: 300px; height: 350px;">
-            <div class="window-title">Interests
-                <div class="window-controls">
-                    <div class="window-button minimize">—</div>
-                    <div class="window-button maximize">□</div>
-                    <div class="window-button close">✖</div>
-                </div>
-            </div>
-            <div class="mt-5">
-                <p>I'm a huge nerd and I'm always tinkering with computers and even making websites like this one. I love nu metal and like idk tvgirl that can be its own genre, lol. I love playing nintendo games on my steam deck as well :3. I like watching anime sometimes but its a meh for me normally. Thank you for visiting my website!!</p>
-            </div>
-        </div>
-
         <div class="window w-96 absolute" id="friendsWindow">
-            <div class="window-title">Fav Songs !! 
+            <div class="window-title">My Fav Songs !! 
                 <div class="window-controls">
                     <div class="window-button minimize">—</div>
                     <div class="window-button maximize">□</div>
