@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Browser</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      background-color: #181818; /* Dark background */
+      color: #e1e1e1; /* Light text color for contrast */
+    }
+
+    #header-container {
+      display: flex;
+      flex-direction: column;
+      background-color: #282828; /* Darker header background */
+      padding: 10px;
+    }
+
+    #header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    #url-bar-container {
+      display: flex;
+      align-items: center;
+      background-color: #383838; /* Dark input background */
+      border: 1px solid #555; /* Darker border */
+      border-radius: 20px;
+      padding: 5px;
+    }
+
+    #url-bar {
+      border: none;
+      outline: none;
+      flex-grow: 1;
+      margin-right: 10px;
+      background-color: inherit; /* Inherit background from container */
+      color: inherit; /* Inherit text color from body */
+    }
+
+    #go-btn, #new-tab-btn, #dropdown-menu button {
+      background-color: #444; /* Dark button background */
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 50%;
+      padding: 5px 10px;
+      color: inherit; /* Inherit text color from body */
+    }
+
+    #new-tab-btn {
+      margin-right: 10px;
+    }
+
+    #tabs-container {
+      display: flex;
+      overflow-x: auto;
+    }
+
+    .tab {
+      background-color: #383838; /* Dark tab background */
+      border: 1px solid #555; /* Darker border */
+      border-radius: 20px;
+      padding: 5px 10px;
+      margin-right: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      white-space: nowrap; /* Prevent text from wrapping */
+      overflow: hidden; /* Hide overflowing text */
+      max-width: 200px; /* Limit tab width */
+    }
+
+    .tab.active {
+      background-color: #444; /* Slightly darker active tab background */
+    }
+
+    .close-btn {
+      margin-left: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: #666; /* Darker close button background */
+      border-radius: 50%;
+      padding: 2px 6px;
+    }
+
+    #content-container {
+      flex-grow: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .iframe-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #fullscreen-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #444; /* Dark button background */
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 50%;
+      padding: 5px 10px;
+      display: none;
+      color: inherit; /* Inherit text color from body */
+    }
+
+    #dropdown-menu {
+      position: relative;
+      display: inline-block;
+    }
+
+    #dropdown-menu-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      background-color: #333; /* Dark dropdown background */
+      min-width: 120px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      color: inherit; /* Inherit text color from body */
+    }
+
+    #dropdown-menu:hover #dropdown-menu-content {
+      display: block;
+    }
+
+    #dropdown-menu-content a {
+      color: inherit; /* Inherit text color from body */
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    #dropdown-menu-content a:hover {
+      background-color: #444; /* Slightly darker hover background */
+    }
+  </style>
+</head>
+<body>
+  <div id="header-container">
+    <div id="header">
+      <button id="new-tab-btn">➕</button>
+      <div id="url-bar-container">
+        <input placeholder="Enter a URL" id="url-bar" type="text">
+        <button id="go-btn">🔍</button>
+      </div>
+      <div id="dropdown-menu">
+        <button>⚙️</button>
+        <div id="dropdown-menu-content">
+          <a id="fullscreen-btn">🖥️ Fullscreen</a>
+          <a id="reload-btn">🔄 Reload</a>
+        </div>
+      </div>
+    </div>
+    <div id="tabs-container">
+      
+    </div>
+  </div>
+
+  <div id="content-container">
+    
+  </div>
+
+  <button id="fullscreen-toggle">⟲</button>
+
+  <script>
+    const urlBar = document.getElementById('url-bar');
+    const goBtn = document.getElementById('go-btn');
+    const newTabBtn = document.getElementById('new-tab-btn');
+    const tabsContainer = document.getElementById('tabs-container');
+    const contentContainer = document.getElementById('content-container');
+    const fullscreenBtn = document.getElementById('fullscreen-btn')
+    const fullscreenToggle = document.getElementById('fullscreen-toggle');
+    const reloadBtn = document.getElementById('reload-btn');
+
+    let activeTab = null;
+    let tabs = [];
+
+
+    function createTab(url = "https://www.google.com/search?igu=1") {
+      const tab = document.createElement('div');
+      tab.classList.add('tab');
+      const tabTitle = document.createElement("span")
+      tabTitle.textContent = url
+      tabTitle.style = "text-overflow: ellipsis; overflow: hidden"
+      const closeBtn = document.createElement('span');
+      closeBtn.textContent = 'X';
+      closeBtn.classList.add('close-btn');
+
+      closeBtn.addEventListener('click', () => {
+        closeTab(tab);
+      });
+
+      tab.appendChild(tabTitle)
+      tab.appendChild(closeBtn);
+      tabsContainer.appendChild(tab);
+      tabs.push(tab);
+
+      tab.addEventListener('click', () => {
+        setActiveTab(tab);
+      });
+
+      const iframe = document.createElement('iframe');
+      iframe.classList.add('iframe-content', 'hidden');
+      iframe.src = url;
+      contentContainer.appendChild(iframe);
+
+      tab.iframe = iframe; 
+      setActiveTab(tab);
+      return tab
+    }
+
+
+
+    function closeTab(tab) {
+        const index = tabs.indexOf(tab);
+    
+        if (index > -1) {
+          tabs.splice(index, 1);
+          tabsContainer.removeChild(tab);
+          contentContainer.removeChild(tab.iframe);
+    
+          if (tab === activeTab) {
+            if (tabs.length > 0) {
+              setActiveTab(tabs[index - 1] || tabs[0]);
+            } else {
+              activeTab = null;
+            }
+          }
+        }
+      }
+
+    function setActiveTab(tab) {
+      if (activeTab) {
+        activeTab.classList.remove('active');
+        activeTab.iframe.classList.add('hidden');
+      }
+
+      activeTab = tab;
+      activeTab.classList.add('active');
+      activeTab.iframe.classList.remove('hidden');
+
+      urlBar.value = activeTab.iframe.src; 
+    }
+
+
+    goBtn.addEventListener('click', () => {
+      if (activeTab) {
+        activeTab.iframe.src = urlBar.value;
+        activeTab.querySelector('span:first-child').textContent = urlBar.value
+      }
+    });
+
+    newTabBtn.addEventListener('click', () => {
+      createTab();
+    });
+
+    reloadBtn.addEventListener('click', () => {
+      if (activeTab) {
+        activeTab.iframe.src = activeTab.iframe.src
+      }
+    })
+
+    fullscreenBtn.addEventListener('click', () => {
+        if (document.fullscreenElement) {
+          document.exitFullscreen();
+        } else {
+          document.documentElement.requestFullscreen();
+        }
+      });
+
+      document.addEventListener('fullscreenchange', () => {
+        if (document.fullscreenElement) {
+          fullscreenToggle.style.display = 'block';
+        } else {
+          fullscreenToggle.style.display = 'none';
+        }
+      });
+    
+      fullscreenToggle.addEventListener('click', () => {
+        document.exitFullscreen();
+      });
+
+    createTab()
+  </script>
+</body>
+</html>
