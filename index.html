@@ -91,8 +91,46 @@
 <button onclick="createminecraftWindow()" style="display: flex; align-items: center; border: 1px solid black;">
   <img src="https://eaglercraft.q13x.com/favicon.ico" style="height: 20px; margin-right: 5px;">
   Minecraft 1.8.8
-</button>
+  </button> <br> <p>Change your wallpaper!!</p>
+<input type="file" id="fileInput" style="border: 1px solid black; opacity: 1; cursor: pointer; text-align: left;">
+<label for="fileInput" style="cursor: pointer;"></label> <br>
+<button id="uploadButton" style="border: 1px solid black; cursor: pointer;">Apply Image</button>
+<button id="removeButton" style="border: 1px solid black; cursor: pointer;">Remove Image</button>
 </div>
+
+<script>
+  const fileInput = document.getElementById('fileInput');
+  const uploadButton = document.getElementById('uploadButton');
+  const removeButton   
+ = document.getElementById('removeButton');
+  const body = document.body;
+
+  uploadButton.addEventListener('click', () => {
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      body.style.backgroundImage = `url(${e.target.result})`;
+      localStorage.setItem('backgroundImage', e.target.result);
+    };
+
+    reader.readAsDataURL(file);
+  });
+
+  removeButton.addEventListener('click', () => {
+    // Remove user uploaded background
+    body.style.backgroundImage = "";  // Clear background image style
+    localStorage.removeItem('backgroundImage');  // Remove stored URL
+  });
+
+  // Load the saved image URL on page load
+  window.addEventListener('load', () => {
+    const savedImageUrl = localStorage.getItem('backgroundImage');
+    if (savedImageUrl) {
+      body.style.backgroundImage = `url(${savedImageUrl})`;
+    }
+  });
+</script>
 
 <script>
   function createminecraftWindow() {
