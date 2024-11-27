@@ -422,10 +422,21 @@ displayTime();
 
 <script>
   const closeButtons = document.querySelectorAll('.window-button.close');
+  const maximizeButtons = document.querySelectorAll('.window-button.maximize');
 
   closeButtons.forEach(closeButton => {
     closeButton.addEventListener('click', function() {
       this.parentElement.parentElement.parentElement.remove(); // Removes the entire window element
+    });
+  });
+
+  maximizeButtons.forEach(maximizeButton => {
+    maximizeButton.addEventListener('click', function() {
+      const windowElement = this.parentElement.parentElement.parentElement;
+      const iframe = windowElement.querySelector('iframe');
+      const iframeSource = iframe.getAttribute('src');
+
+      window.open(iframeSource, '_blank'); // Opens the iframe source in a new tab
     });
   });
 </script>
