@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,10 +22,10 @@
   <img src="https://iconape.com/wp-content/png_logo_vector/windows-start-button-logo.png" style="width: 70px; height: 30px;">
 </button>
 
-<div id="overlay" style="display: none; position: fixed; background-color: grey; padding: 20px; bottom: 50px; width: 500px; height: 300px; border: 1px solid white">
+<div id="overlay" style="display: none; position: fixed; background-color: grey; padding: 20px; bottom: 50px; width: 350px; height: 500px; border: 1px solid white">
 <template id="google-window-template">
   <div class="window w-96 absolute" id="friendsWindow" style="width: 1000px; height: 700px;">
-            <div class="window-title">Google
+            <div class="window-title">Google (Most websites will refuse to connect, use the proxy to fix!)
                 <div class="window-controls">
                     <div class="window-button minimize">—</div>
                     <div class="window-button maximize">□</div>
@@ -33,21 +34,6 @@
             </div>
             <div class="mt-5" style="height: 90%;">
               <iframe src="https://cyquna.github.io/My-Cyber-Space/tabs.html" width="100%" height="100%"></iframe>
-            </div>
-        </div>
-</template>
-
-<template id="flappy-window-template">
-  <div class="window w-96 absolute" id="friendsWindow" style="width: 400px; height: 680px;">
-            <div class="window-title">Flappy Bird
-                <div class="window-controls">
-                    <div class="window-button minimize">—</div>
-                    <div class="window-button maximize">□</div>
-                    <div class="window-button close">✖</div>
-                </div>
-            </div>
-            <div class="mt-5" style="height: 90%;">
-              <iframe src="https://emupedia.net/emupedia-game-flappy-bird/" width="100%" height="100%"></iframe>
             </div>
         </div>
 </template>
@@ -112,13 +98,84 @@
         </div>
 </template>
 
+<template id="games3-window-template">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 1000px; height: 700px;">
+            <div class="window-title">MORE more Games
+                <div class="window-controls">
+                    <div class="window-button minimize">—</div>
+                    <div class="window-button maximize">□</div>
+                    <div class="window-button close">✖</div>
+                </div>
+            </div>
+            <div class="mt-5" style="height: 90%;">
+              <iframe src="https://d3rtzzzsiu7gdr.cloudfront.net/library.html" width="100%" height="100%"></iframe>
+            </div>
+        </div>
+</template>
+
+<template id="discord-window-template">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 800px; height: 600px;">
+            <div class="window-title">Discord
+                <div class="window-controls">
+                    <div class="window-button minimize">—</div>
+                    <div class="window-button maximize">□</div>
+                    <div class="window-button close">✖</div>
+                </div>
+            </div>
+            <div class="mt-5" style="height: 90%;">
+              <iframe src="https://news.obermotz.org/a/hvtrs8%2F-dksaopd%2Ccmm-lmgkn" width="100%" height="100%"></iframe>
+            </div>
+        </div>
+</template>
+
+<template id="notepad-window-template">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 400px; height: 300px;">
+            <div class="window-title">Notepad
+                <div class="window-controls">
+                    <div class="window-button minimize">—</div>
+                    <div class="window-button maximize">□</div>
+                    <div class="window-button close">✖</div>
+                </div>
+            </div>
+            <div class="mt-5" style="height: 90%;">
+              <textarea style="width: 100%; height: 100%; background-color: white; color: black;"></textarea>
+            </div>
+        </div>
+</template>
+
+<template id="calc-window-template">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 550px; height: 630px;">
+            <div class="window-title">Calculator
+                <div class="window-controls">
+                    <div class="window-button minimize">—</div>
+                    <div class="window-button maximize">□</div>
+                    <div class="window-button close">✖</div>
+                </div>
+            </div>
+            <div class="mt-5" style="height: 90%;">
+              <iframe src="https://michaelacook.github.io/win98-calculator/" width="100%" height="100%"></iframe>
+            </div>
+        </div>
+</template>
+
+<template id="paint-window-template">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 550px; height: 630px;">
+            <div class="window-title">MS-Paint
+                <div class="window-controls">
+                    <div class="window-button minimize">—</div>
+                    <div class="window-button maximize">□</div>
+                    <div class="window-button close">✖</div>
+                </div>
+            </div>
+            <div class="mt-5" style="height: 90%;">
+              <iframe src="https://jspaint.app/" width="100%" height="100%"></iframe>
+            </div>
+        </div>
+</template>
+
 <button onclick="createGoogleWindow()" style="display: flex; align-items: center; border: 1px solid black;">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/480px-Google_%22G%22_logo.svg.png" style="height: 20px; margin-right: 5px;">
-  Google
-</button>
-<button onclick="createflappyWindow()" style="display: flex; align-items: center; border: 1px solid black;">
-  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0a/Flappy_Bird_icon.png/220px-Flappy_Bird_icon.png" style="height: 20px; margin-right: 5px;">
-  Flappy Bird
+  Google (Non-Proxy)
 </button>
 <button onclick="creategamesWindow()" style="display: flex; align-items: center; border: 1px solid black;">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Video-Game-Controller-Icon-IDV-green.svg/120px-Video-Game-Controller-Icon-IDV-green.svg.png" style="height: 20px; margin-right: 5px;">
@@ -128,6 +185,10 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Video-Game-Controller-Icon-IDV-green.svg/120px-Video-Game-Controller-Icon-IDV-green.svg.png" style="height: 20px; margin-right: 5px;">
   Even MORE Games!
   </button>
+<button onclick="creategames3Window()" style="display: flex; align-items: center; border: 1px solid black;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Video-Game-Controller-Icon-IDV-green.svg/120px-Video-Game-Controller-Icon-IDV-green.svg.png" style="height: 20px; margin-right: 5px;">
+  MORE More Games
+  </button>
 <button onclick="createminecraftWindow()" style="display: flex; align-items: center; border: 1px solid black;">
   <img src="https://eaglercraft.q13x.com/favicon.ico" style="height: 20px; margin-right: 5px;">
   Minecraft 1.8.8
@@ -135,17 +196,36 @@
 <button onclick="createproxyWindow()" style="display: flex; align-items: center; border: 1px solid black;">
   <img src="https://static.vecteezy.com/system/resources/thumbnails/041/463/982/small_2x/web-browser-icon-3d-render-png.png" style="height: 20px; margin-right: 5px;">
   Interstellar Proxy
-  </button> <br> <p>Change your wallpaper!!</p>
+  </button>
+<button onclick="creatediscordWindow()" style="display: flex; align-items: center; border: 1px solid black;">
+  <img src="https://cdn.icon-icons.com/icons2/2108/PNG/512/discord_icon_130958.png" style="height: 20px; margin-right: 5px;">
+  Discord
+  </button> 
+<button onclick="createnotepadWindow()" style="display: flex; align-items: center; border: 1px solid black;">
+  <img src="https://cdn-icons-png.flaticon.com/512/4438/4438839.png" style="height: 20px; margin-right: 5px;">
+  Notepad
+  </button> 
+<button onclick="createcalcWindow()" style="display: flex; align-items: center; border: 1px solid black;">
+  <img src="https://images.dwncdn.net/images/t_app-icon-l/p/f68c5b0c-ad12-4045-83c6-9bb4e6cfcc5a/4076588680/2053_4-10074456-iconimg118038.png" style="height: 20px; margin-right: 5px;">
+  Calculator
+  </button>
+<button onclick="createpaintWindow()" style="display: flex; align-items: center; border: 1px solid black;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Microsoft_Paint.svg/2048px-Microsoft_Paint.svg.png" style="height: 20px; margin-right: 5px;">
+  MS-Paint
+  </button>
+<div>
+<p>Change your wallpaper!!</p>
 <input type="file" id="fileInput" style="border: 1px solid black; opacity: 1; cursor: pointer; text-align: left;">
 <label for="fileInput" style="cursor: pointer;"></label> <br>
 <button id="uploadButton" style="border: 1px solid black; cursor: pointer;">Apply Image</button>
 <button id="removeButton" style="border: 1px solid black; cursor: pointer;">Remove Image</button>
+  </div>
 </div>
 
 <script>
   const fileInput = document.getElementById('fileInput');
   const uploadButton = document.getElementById('uploadButton');
-  const removeButton   
+  const removeButton   
  = document.getElementById('removeButton');
   const body = document.body;
 
@@ -179,6 +259,286 @@
 <script>
   function creategames2Window() {
     const template = document.getElementById('games2-window-template');
+    const clone = template.content.cloneNode(true);
+    const window = clone.querySelector('.window');
+
+    // Append the cloned window to the body
+    document.body.appendChild(window);
+
+    // Add drag and drop functionality
+    let isDragging = false;
+    let offsetX, offsetY;
+    let startWidth, startHeight;
+
+    window.querySelector('.window-title').addEventListener('mousedown', (e) => {
+      isDragging = true;
+      offsetX = window.offsetLeft - e.clientX;
+      offsetY = window.offsetTop - e.clientY;
+      startWidth = window.offsetWidth;
+      startHeight = window.offsetHeight;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      window.style.left = (e.clientX + offsetX) + 'px';
+      window.style.top = (e.clientY + offsetY) + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    // Add minimize, maximize, and close button functionality
+    const minimizeButton = window.querySelector('.minimize');
+    const maximizeButton = window.querySelector('.maximize');
+    const closeButton = window.querySelector('.close');
+
+    minimizeButton.addEventListener('click', () => {
+      // Implement minimize functionality (e.g., hide the window)
+    });
+
+    maximizeButton.addEventListener('click', () => {
+      // Implement maximize functionality (e.g., make the window full screen)
+    });
+
+    closeButton.addEventListener('click', () => {
+      window.remove();
+    });
+
+    // Trigger the window positioning and resizing logic
+    getRandomPosition(window, window.offsetHeight, window.offsetWidth);
+  }
+
+  // ... (existing getRandomPosition function)
+</script>
+
+<script>
+  function createpaintWindow() {
+    const template = document.getElementById('paint-window-template');
+    const clone = template.content.cloneNode(true);
+    const window = clone.querySelector('.window');
+
+    // Append the cloned window to the body
+    document.body.appendChild(window);
+
+    // Add drag and drop functionality
+    let isDragging = false;
+    let offsetX, offsetY;
+    let startWidth, startHeight;
+
+    window.querySelector('.window-title').addEventListener('mousedown', (e) => {
+      isDragging = true;
+      offsetX = window.offsetLeft - e.clientX;
+      offsetY = window.offsetTop - e.clientY;
+      startWidth = window.offsetWidth;
+      startHeight = window.offsetHeight;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      window.style.left = (e.clientX + offsetX) + 'px';
+      window.style.top = (e.clientY + offsetY) + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    // Add minimize, maximize, and close button functionality
+    const minimizeButton = window.querySelector('.minimize');
+    const maximizeButton = window.querySelector('.maximize');
+    const closeButton = window.querySelector('.close');
+
+    minimizeButton.addEventListener('click', () => {
+      // Implement minimize functionality (e.g., hide the window)
+    });
+
+    maximizeButton.addEventListener('click', () => {
+      // Implement maximize functionality (e.g., make the window full screen)
+    });
+
+    closeButton.addEventListener('click', () => {
+      window.remove();
+    });
+
+    // Trigger the window positioning and resizing logic
+    getRandomPosition(window, window.offsetHeight, window.offsetWidth);
+  }
+
+  // ... (existing getRandomPosition function)
+</script>
+
+<script>
+  function createcalcWindow() {
+    const template = document.getElementById('calc-window-template');
+    const clone = template.content.cloneNode(true);
+    const window = clone.querySelector('.window');
+
+    // Append the cloned window to the body
+    document.body.appendChild(window);
+
+    // Add drag and drop functionality
+    let isDragging = false;
+    let offsetX, offsetY;
+    let startWidth, startHeight;
+
+    window.querySelector('.window-title').addEventListener('mousedown', (e) => {
+      isDragging = true;
+      offsetX = window.offsetLeft - e.clientX;
+      offsetY = window.offsetTop - e.clientY;
+      startWidth = window.offsetWidth;
+      startHeight = window.offsetHeight;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      window.style.left = (e.clientX + offsetX) + 'px';
+      window.style.top = (e.clientY + offsetY) + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    // Add minimize, maximize, and close button functionality
+    const minimizeButton = window.querySelector('.minimize');
+    const maximizeButton = window.querySelector('.maximize');
+    const closeButton = window.querySelector('.close');
+
+    minimizeButton.addEventListener('click', () => {
+      // Implement minimize functionality (e.g., hide the window)
+    });
+
+    maximizeButton.addEventListener('click', () => {
+      // Implement maximize functionality (e.g., make the window full screen)
+    });
+
+    closeButton.addEventListener('click', () => {
+      window.remove();
+    });
+
+    // Trigger the window positioning and resizing logic
+    getRandomPosition(window, window.offsetHeight, window.offsetWidth);
+  }
+
+  // ... (existing getRandomPosition function)
+</script>
+
+<script>
+  function createnotepadWindow() {
+    const template = document.getElementById('notepad-window-template');
+    const clone = template.content.cloneNode(true);
+    const window = clone.querySelector('.window');
+
+    // Append the cloned window to the body
+    document.body.appendChild(window);
+
+    // Add drag and drop functionality
+    let isDragging = false;
+    let offsetX, offsetY;
+    let startWidth, startHeight;
+
+    window.querySelector('.window-title').addEventListener('mousedown', (e) => {
+      isDragging = true;
+      offsetX = window.offsetLeft - e.clientX;
+      offsetY = window.offsetTop - e.clientY;
+      startWidth = window.offsetWidth;
+      startHeight = window.offsetHeight;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      window.style.left = (e.clientX + offsetX) + 'px';
+      window.style.top = (e.clientY + offsetY) + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    // Add minimize, maximize, and close button functionality
+    const minimizeButton = window.querySelector('.minimize');
+    const maximizeButton = window.querySelector('.maximize');
+    const closeButton = window.querySelector('.close');
+
+    minimizeButton.addEventListener('click', () => {
+      // Implement minimize functionality (e.g., hide the window)
+    });
+
+    maximizeButton.addEventListener('click', () => {
+      // Implement maximize functionality (e.g., make the window full screen)
+    });
+
+    closeButton.addEventListener('click', () => {
+      window.remove();
+    });
+
+    // Trigger the window positioning and resizing logic
+    getRandomPosition(window, window.offsetHeight, window.offsetWidth);
+  }
+
+  // ... (existing getRandomPosition function)
+</script>
+
+<script>
+  function creategames3Window() {
+    const template = document.getElementById('games3-window-template');
+    const clone = template.content.cloneNode(true);
+    const window = clone.querySelector('.window');
+
+    // Append the cloned window to the body
+    document.body.appendChild(window);
+
+    // Add drag and drop functionality
+    let isDragging = false;
+    let offsetX, offsetY;
+    let startWidth, startHeight;
+
+    window.querySelector('.window-title').addEventListener('mousedown', (e) => {
+      isDragging = true;
+      offsetX = window.offsetLeft - e.clientX;
+      offsetY = window.offsetTop - e.clientY;
+      startWidth = window.offsetWidth;
+      startHeight = window.offsetHeight;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      window.style.left = (e.clientX + offsetX) + 'px';
+      window.style.top = (e.clientY + offsetY) + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    // Add minimize, maximize, and close button functionality
+    const minimizeButton = window.querySelector('.minimize');
+    const maximizeButton = window.querySelector('.maximize');
+    const closeButton = window.querySelector('.close');
+
+    minimizeButton.addEventListener('click', () => {
+      // Implement minimize functionality (e.g., hide the window)
+    });
+
+    maximizeButton.addEventListener('click', () => {
+      // Implement maximize functionality (e.g., make the window full screen)
+    });
+
+    closeButton.addEventListener('click', () => {
+      window.remove();
+    });
+
+    // Trigger the window positioning and resizing logic
+    getRandomPosition(window, window.offsetHeight, window.offsetWidth);
+  }
+
+  // ... (existing getRandomPosition function)
+</script>
+
+<script>
+  function creatediscordWindow() {
+    const template = document.getElementById('discord-window-template');
     const clone = template.content.cloneNode(true);
     const window = clone.querySelector('.window');
 
@@ -400,61 +760,6 @@
   // ... (existing getRandomPosition function)
 </script>
 
-<script>
-  function createflappyWindow() {
-    const template = document.getElementById('flappy-window-template');
-    const clone = template.content.cloneNode(true);
-    const window = clone.querySelector('.window');
-
-    // Append the cloned window to the body
-    document.body.appendChild(window);
-
-    // Add drag and drop functionality
-    let isDragging = false;
-    let offsetX, offsetY;
-    let startWidth, startHeight;
-
-    window.querySelector('.window-title').addEventListener('mousedown', (e) => {
-      isDragging = true;
-      offsetX = window.offsetLeft - e.clientX;
-      offsetY = window.offsetTop - e.clientY;
-      startWidth = window.offsetWidth;
-      startHeight = window.offsetHeight;
-    });
-
-    document.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      window.style.left = (e.clientX + offsetX) + 'px';
-      window.style.top = (e.clientY + offsetY) + 'px';
-    });
-
-    document.addEventListener('mouseup', () => {
-      isDragging = false;
-    });
-
-    // Add minimize, maximize, and close button functionality
-    const minimizeButton = window.querySelector('.minimize');
-    const maximizeButton = window.querySelector('.maximize');
-    const closeButton = window.querySelector('.close');
-
-    minimizeButton.addEventListener('click', () => {
-      // Implement minimize functionality (e.g., hide the window)
-    });
-
-    maximizeButton.addEventListener('click', () => {
-      // Implement maximize functionality (e.g., make the window full screen)
-    });
-
-    closeButton.addEventListener('click', () => {
-      window.remove();
-    });
-
-    // Trigger the window positioning and resizing logic
-    getRandomPosition(window, window.offsetHeight, window.offsetWidth);
-  }
-
-  // ... (existing getRandomPosition function)
-</script>
 
 <script>
   function createGoogleWindow() {
@@ -733,21 +1038,6 @@ displayTime();
                 </div>
             </div>
         </div>
-
-<div class="window w-96 absolute" id="friendsWindow" style="width: 400px; height: 300px;">
-            <div class="window-title">Notepad
-                <div class="window-controls">
-                    <div class="window-button minimize">—</div>
-                    <div class="window-button maximize">□</div>
-                    <div class="window-button close">✖</div>
-                </div>
-            </div>
-            <div class="mt-5" style="height: 90%;">
-              <textarea style="width: 100%; height: 100%; background-color: #111; color: white;"></textarea>
-            </div>
-        </div>
-
-
 
     </div>
 
