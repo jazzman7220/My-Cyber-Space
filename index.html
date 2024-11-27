@@ -23,7 +23,7 @@
 
 <div id="overlay" style="display: none; position: fixed; background-color: grey; padding: 20px; bottom: 50px; width: 500px; height: 300px; border: 1px solid white">
 <template id="google-window-template">
-  <div class="window w-96 absolute" id="friendsWindow" style="width: 400px; height: 400px;">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 1000px; height: 700px;">
             <div class="window-title">Google
                 <div class="window-controls">
                     <div class="window-button minimize">—</div>
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="mt-5" style="height: 90%;">
-              <iframe src="https://www.google.com/search?igu=1" width="100%" height="100%"></iframe>
+              <iframe src="https://cyquna.github.io/My-Cyber-Space/tabs.html" width="100%" height="100%"></iframe>
             </div>
         </div>
 </template>
@@ -82,6 +82,21 @@
         </div>
 </template>
 
+<template id="proxy-window-template">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 1000px; height: 700px;">
+            <div class="window-title">Interstellar Proxy
+                <div class="window-controls">
+                    <div class="window-button minimize">—</div>
+                    <div class="window-button maximize">□</div>
+                    <div class="window-button close">✖</div>
+                </div>
+            </div>
+            <div class="mt-5" style="height: 90%;">
+              <iframe src="https://news.obermotz.org/rx" width="100%" height="100%"></iframe>
+            </div>
+        </div>
+</template>
+
 <button onclick="createGoogleWindow()" style="display: flex; align-items: center; border: 1px solid black;">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/480px-Google_%22G%22_logo.svg.png" style="height: 20px; margin-right: 5px;">
   Google
@@ -97,6 +112,10 @@
 <button onclick="createminecraftWindow()" style="display: flex; align-items: center; border: 1px solid black;">
   <img src="https://eaglercraft.q13x.com/favicon.ico" style="height: 20px; margin-right: 5px;">
   Minecraft 1.8.8
+  </button> 
+<button onclick="createproxyWindow()" style="display: flex; align-items: center; border: 1px solid black;">
+  <img src="https://static.vecteezy.com/system/resources/thumbnails/041/463/982/small_2x/web-browser-icon-3d-render-png.png" style="height: 20px; margin-right: 5px;">
+  Interstellar Proxy
   </button> <br> <p>Change your wallpaper!!</p>
 <input type="file" id="fileInput" style="border: 1px solid black; opacity: 1; cursor: pointer; text-align: left;">
 <label for="fileInput" style="cursor: pointer;"></label> <br>
@@ -136,6 +155,62 @@
       body.style.backgroundImage = `url(${savedImageUrl})`;
     }
   });
+</script>
+
+<script>
+  function createproxyWindow() {
+    const template = document.getElementById('proxy-window-template');
+    const clone = template.content.cloneNode(true);
+    const window = clone.querySelector('.window');
+
+    // Append the cloned window to the body
+    document.body.appendChild(window);
+
+    // Add drag and drop functionality
+    let isDragging = false;
+    let offsetX, offsetY;
+    let startWidth, startHeight;
+
+    window.querySelector('.window-title').addEventListener('mousedown', (e) => {
+      isDragging = true;
+      offsetX = window.offsetLeft - e.clientX;
+      offsetY = window.offsetTop - e.clientY;
+      startWidth = window.offsetWidth;
+      startHeight = window.offsetHeight;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      window.style.left = (e.clientX + offsetX) + 'px';
+      window.style.top = (e.clientY + offsetY) + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    // Add minimize, maximize, and close button functionality
+    const minimizeButton = window.querySelector('.minimize');
+    const maximizeButton = window.querySelector('.maximize');
+    const closeButton = window.querySelector('.close');
+
+    minimizeButton.addEventListener('click', () => {
+      // Implement minimize functionality (e.g., hide the window)
+    });
+
+    maximizeButton.addEventListener('click', () => {
+      // Implement maximize functionality (e.g., make the window full screen)
+    });
+
+    closeButton.addEventListener('click', () => {
+      window.remove();
+    });
+
+    // Trigger the window positioning and resizing logic
+    getRandomPosition(window, window.offsetHeight, window.offsetWidth);
+  }
+
+  // ... (existing getRandomPosition function)
 </script>
 
 <script>
@@ -403,7 +478,7 @@ displayTime();
 </script>
 
 <div id="splashScreen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); color: white; display: flex; justify-content: center; align-items: center; z-index: 9999;">
-    <p style="font-size: 24px; text-align: center;">WARNING: <br> THIS WEBSITE DOES NOT SUPPORT TOUCHSCREEN DEVICES</p>
+    <p style="font-size: 24px; text-align: center;">WARNING: <br> THIS WEBSITE DOES NOT SUPPORT TOUCHSCREEN/MOBILE DEVICES</p>
 </div>
 
 <audio autoplay>
