@@ -31,8 +31,86 @@
         </div>
 </template>
 
-<button onclick="createGoogleWindow()">Google</button>
+<template id="flappy-window-template">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 400px; height: 680px;">
+            <div class="window-title">Flappy Bird
+                <div class="window-controls">
+                    <div class="window-button minimize">—</div>
+                    <div class="window-button maximize">□</div>
+                    <div class="window-button close">✖</div>
+                </div>
+            </div>
+            <div class="mt-5">
+              <iframe src="https://emupedia.net/emupedia-game-flappy-bird/" width="100%" height="600px"></iframe>
+            </div>
+        </div>
+</template>
+
+<button onclick="createGoogleWindow()" style="display: flex; align-items: center; border: 1px solid black;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/480px-Google_%22G%22_logo.svg.png" style="height: 20px; margin-right: 5px;">
+  Google
+</button> <br>
+<button onclick="createflappyWindow()" style="display: flex; align-items: center; border: 1px solid black;">
+  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0a/Flappy_Bird_icon.png/220px-Flappy_Bird_icon.png" style="height: 20px; margin-right: 5px;">
+  Flappy Bird
+</button>
 </div>
+
+<script>
+  function createflappyWindow() {
+    const template = document.getElementById('flappy-window-template');
+    const clone = template.content.cloneNode(true);
+    const window = clone.querySelector('.window');
+
+    // Append the cloned window to the body
+    document.body.appendChild(window);
+
+    // Add drag and drop functionality
+    let isDragging = false;
+    let offsetX, offsetY;
+    let startWidth, startHeight;
+
+    window.querySelector('.window-title').addEventListener('mousedown', (e) => {
+      isDragging = true;
+      offsetX = window.offsetLeft - e.clientX;
+      offsetY = window.offsetTop - e.clientY;
+      startWidth = window.offsetWidth;
+      startHeight = window.offsetHeight;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      window.style.left = (e.clientX + offsetX) + 'px';
+      window.style.top = (e.clientY + offsetY) + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    // Add minimize, maximize, and close button functionality
+    const minimizeButton = window.querySelector('.minimize');
+    const maximizeButton = window.querySelector('.maximize');
+    const closeButton = window.querySelector('.close');
+
+    minimizeButton.addEventListener('click', () => {
+      // Implement minimize functionality (e.g., hide the window)
+    });
+
+    maximizeButton.addEventListener('click', () => {
+      // Implement maximize functionality (e.g., make the window full screen)
+    });
+
+    closeButton.addEventListener('click', () => {
+      window.remove();
+    });
+
+    // Trigger the window positioning and resizing logic
+    getRandomPosition(window, window.offsetHeight, window.offsetWidth);
+  }
+
+  // ... (existing getRandomPosition function)
+</script>
 
 <script>
   function createGoogleWindow() {
@@ -338,18 +416,7 @@ displayTime();
             </div>
         </div>
 
-<div class="window w-96 absolute" id="friendsWindow" style="width: 400px; height: 680px;">
-            <div class="window-title">If You Get Bored
-                <div class="window-controls">
-                    <div class="window-button minimize">—</div>
-                    <div class="window-button maximize">□</div>
-                    <div class="window-button close">✖</div>
-                </div>
-            </div>
-            <div class="mt-5">
-              <iframe src="https://emupedia.net/emupedia-game-flappy-bird/" width="100%" height="600px"></iframe>
-            </div>
-        </div>
+
 
     </div>
 
