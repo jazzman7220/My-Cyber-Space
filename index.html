@@ -71,7 +71,7 @@
 </template>
 
 <template id="proxy-window-template">
-  <div class="window w-96 absolute" id="friendsWindow" style="width: 1000px; height: 700px;">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 800px; height: 500px;">
             <div class="window-title">Interstellar Proxy
                 <div class="window-controls">
                     <div class="window-button minimize">—</div>
@@ -86,7 +86,7 @@
 </template>
 
 <template id="games2-window-template">
-  <div class="window w-96 absolute" id="friendsWindow" style="width: 1000px; height: 700px;">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 800px; height: 500px;">
             <div class="window-title">MORE Games!
                 <div class="window-controls">
                     <div class="window-button minimize">—</div>
@@ -101,7 +101,7 @@
 </template>
 
 <template id="games3-window-template">
-  <div class="window w-96 absolute" id="friendsWindow" style="width: 1000px; height: 700px;">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 800px; height: 500px;">
             <div class="window-title">MORE more Games
                 <div class="window-controls">
                     <div class="window-button minimize">—</div>
@@ -116,7 +116,7 @@
 </template>
 
 <template id="discord-window-template">
-  <div class="window w-96 absolute" id="friendsWindow" style="width: 800px; height: 600px;">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 800px; height: 500px;">
             <div class="window-title">Shuttle Proxy
                 <div class="window-controls">
                     <div class="window-button minimize">—</div>
@@ -146,7 +146,7 @@
 </template>
 
 <template id="calc-window-template">
-  <div class="window w-96 absolute" id="friendsWindow" style="width: 550px; height: 630px;">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 550px; height: 530px;">
             <div class="window-title">Calculator
                 <div class="window-controls">
                     <div class="window-button minimize">—</div>
@@ -161,7 +161,7 @@
 </template>
 
 <template id="paint-window-template">
-  <div class="window w-96 absolute" id="friendsWindow" style="width: 550px; height: 630px;">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 550px; height: 530px;">
             <div class="window-title">MS-Paint
                 <div class="window-controls">
                     <div class="window-button minimize">—</div>
@@ -176,7 +176,7 @@
 </template>
 
 <template id="rammer-window-template">
-  <div class="window w-96 absolute" id="friendsWindow" style="width: 850px; height: 630px; background-color: white;">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 850px; height: 530px; background-color: white;">
             <div class="window-title">Rammerhead Proxy
                 <div class="window-controls">
                     <div class="window-button minimize">—</div>
@@ -191,7 +191,7 @@
 </template>
 
 <template id="utopia-window-template">
-  <div class="window w-96 absolute" id="friendsWindow" style="width: 850px; height: 630px;">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 850px; height: 530px;">
             <div class="window-title">Utopia Proxy
                 <div class="window-controls">
                     <div class="window-button minimize">—</div>
@@ -206,7 +206,7 @@
 </template>
 
 <template id="doge-window-template">
-  <div class="window w-96 absolute" id="friendsWindow" style="width: 850px; height: 630px;">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 850px; height: 530px;">
             <div class="window-title">Doge Proxy
                 <div class="window-controls">
                     <div class="window-button minimize">—</div>
@@ -216,6 +216,21 @@
             </div>
             <div class="mt-5" style="height: 90%;">
               <iframe src="https://jnjsnhahyanhhayhah.fr.to/" width="100%" height="100%"></iframe>
+            </div>
+        </div>
+</template>
+
+<template id="groupchat-window-template">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 850px; height: 530px;">
+            <div class="window-title">Groupchat
+                <div class="window-controls">
+                    <div class="window-button minimize">—</div>
+                    <div class="window-button maximize">□</div>
+                    <div class="window-button close">✖</div>
+                </div>
+            </div>
+            <div class="mt-5" style="height: 90%;">
+              <iframe src="https://cyquna.github.io/skibiditoiletrizz/" width="100%" height="100%"></iframe>
             </div>
         </div>
 </template>
@@ -259,6 +274,10 @@
 <button onclick="createminecraftWindow()" style="display: flex; align-items: center; border: 1px solid black;">
   <img src="https://eaglercraft.q13x.com/favicon.ico" style="height: 20px; margin-right: 5px;">
   Minecraft 1.8.8
+  </button> 
+<button onclick="creategroupchatWindow()" style="display: flex; align-items: center; border: 1px solid black;">
+  <img src="https://iconarchive.com/download/i86037/graphicloads/100-flat-2/chat-2.ico" style="height: 20px; margin-right: 5px;">
+  Cyber Space Groupchat
   </button> 
 <button onclick="createnotepadWindow()" style="display: flex; align-items: center; border: 1px solid black;">
   <img src="https://cdn-icons-png.flaticon.com/512/4438/4438839.png" style="height: 20px; margin-right: 5px;">
@@ -313,6 +332,62 @@
       body.style.backgroundImage = `url(${savedImageUrl})`;
     }
   });
+</script>
+
+<script>
+  function creategroupchatWindow() {
+    const template = document.getElementById('groupchat-window-template');
+    const clone = template.content.cloneNode(true);
+    const window = clone.querySelector('.window');
+
+    // Append the cloned window to the body
+    document.body.appendChild(window);
+
+    // Add drag and drop functionality
+    let isDragging = false;
+    let offsetX, offsetY;
+    let startWidth, startHeight;
+
+    window.querySelector('.window-title').addEventListener('mousedown', (e) => {
+      isDragging = true;
+      offsetX = window.offsetLeft - e.clientX;
+      offsetY = window.offsetTop - e.clientY;
+      startWidth = window.offsetWidth;
+      startHeight = window.offsetHeight;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      window.style.left = (e.clientX + offsetX) + 'px';
+      window.style.top = (e.clientY + offsetY) + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    // Add minimize, maximize, and close button functionality
+    const minimizeButton = window.querySelector('.minimize');
+    const maximizeButton = window.querySelector('.maximize');
+    const closeButton = window.querySelector('.close');
+
+    minimizeButton.addEventListener('click', () => {
+      // Implement minimize functionality (e.g., hide the window)
+    });
+
+    maximizeButton.addEventListener('click', () => {
+      // Implement maximize functionality (e.g., make the window full screen)
+    });
+
+    closeButton.addEventListener('click', () => {
+      window.remove();
+    });
+
+    // Trigger the window positioning and resizing logic
+    getRandomPosition(window, window.offsetHeight, window.offsetWidth);
+  }
+
+  // ... (existing getRandomPosition function)
 </script>
 
 <script>
@@ -1199,7 +1274,7 @@ displayTime();
             </div>
         </div>
 
-        <div class="window w-48 absolute" id="friendsWindow" style="width: 400px; height: 700px;">
+        <div class="window w-48 absolute" id="friendsWindow" style="width: 500px; height: 560px;">
             <div class="window-title">Profile
                 <div class="window-controls">
                     <div class="window-button minimize">—</div>
