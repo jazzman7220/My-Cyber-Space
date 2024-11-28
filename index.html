@@ -56,7 +56,7 @@
 </template>
 
 <template id="minecraft-window-template">
-  <div class="window w-96 absolute" id="friendsWindow" style="width: 100%; height: 100%;">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 800px; height: 530px;">
             <div class="window-title">Minecraft 1.8.8 (If it doesn't let you type, touch the touchscreen a couple of times.)
                 <div class="window-controls">
                     <div class="window-button minimize">—</div>
@@ -1349,38 +1349,51 @@ displayTime();
 
 <script>
   const closeButtons = document.querySelectorAll('.window-button.close');
-const maximizeButtons = document.querySelectorAll('.window-button.maximize');
 
-closeButtons.forEach(closeButton => {
+  closeButtons.forEach(closeButton => {
     closeButton.addEventListener('click', function() {
-        this.parentElement.parentElement.parentElement.remove();
+      this.parentElement.parentElement.parentElement.remove();
     });
-});
+  });
+</script>
 
-maximizeButtons.forEach(maximizeButton => {
-    maximizeButton.addEventListener('click', function() {
-        const windowElement = this.parentElement.parentElement.parentElement;
+<script>
+// Event delegation for the Maximize Button
+document.addEventListener('click', function(event) {
+    // Check if the clicked element is a maximize button
+    if (event.target && event.target.classList.contains('window-button') && event.target.classList.contains('maximize')) {
+        const windowElement = event.target.closest('.window');
+        
+        // If window is already maximized, restore to original size
         const isMaximized = windowElement.classList.contains('maximized');
-
+        
         if (isMaximized) {
-            // Restore original size and position
-            windowElement.style.width = '';
-            windowElement.style.height = '';
-            windowElement.style.top = '';
-            windowElement.style.left = '';
+            // Restore the window to its original size and position
+            const { top, left, width, height } = JSON.parse(windowElement.dataset.originalPosition || '{}');
+            windowElement.style.top = top || '';
+            windowElement.style.left = left || '';
+            windowElement.style.width = width || '';
+            windowElement.style.height = height || '';
             windowElement.classList.remove('maximized');
         } else {
-            // Maximize window and center it
+            // Maximize the window and store its current position
+            windowElement.dataset.originalPosition = JSON.stringify({
+                top: windowElement.style.top || '',
+                left: windowElement.style.left || '',
+                width: windowElement.style.width || '',
+                height: windowElement.style.height || ''
+            });
+
             windowElement.style.width = '100%';
             windowElement.style.height = '100%';
             windowElement.style.top = '0';
             windowElement.style.left = '0';
-            windowElement.style.margin = '0 auto';
+            windowElement.style.margin = '0 auto'; // Center the window
             windowElement.classList.add('maximized');
         }
-    });
+    }
 });
-</script>
+  </script>
 
     <script>
   function getRandomPosition(element, maxTop, maxLeft) {
@@ -1444,6 +1457,13 @@ maximizeButtons.forEach(maximizeButton => {
     });
   });
 </script>
+
+<script>
+window.addEventListener('beforeunload', function(event) {
+  event.preventDefault();
+  event.returnValue = 'Are you sure you want to leave this page?';
+});
+  </script>
 
 </body>
 </html>
