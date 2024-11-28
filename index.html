@@ -1270,7 +1270,7 @@ displayTime();
                 </div>
             </div>
             <div class="mt-5" style="height: 90%;">
-                <p>Welcome to my website! This website originally, like, started out as just a myspace like profile page with all my info but slowly and surely I learned more and more about creating a website so I decided to go all out and make a little windows simulator to play around with in the browser! It also doubles as an unblocker so if you're having issues at school this website should do the trick! I hope you enjoy your time while you're here! <br> <br> Anyway, Click the start button at the botton left of the screen to get started. No pun intended. To resize the windows to make them smaller or bigger click and drag the little lines on the bottom right of the window you want to resize.</p>
+                <p>Welcome to my website! This website originally, like, started out as just a myspace like profile page with all my info but slowly and surely I learned more and more about creating a website so I decided to go all out and make a little windows simulator to play around with in the browser! It also doubles as an unblocker so if you're having issues at school this website should do the trick! I hope you enjoy your time while you're here! <br> <br> Anyway, Click the start button at the botton left of the screen to get started. No pun intended.</p>
             </div>
         </div>
 
@@ -1383,47 +1383,67 @@ maximizeButtons.forEach(maximizeButton => {
 </script>
 
     <script>
-        function getRandomPosition(element, maxTop, maxLeft) {
-            const viewportWidth = window.innerWidth;
-            const viewportHeight = window.innerHeight;
-            const elementWidth = element.offsetWidth;
-            const elementHeight = element.offsetHeight;
+  function getRandomPosition(element, maxTop, maxLeft) {
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    const elementWidth = element.offsetWidth;
+    const elementHeight = element.offsetHeight;
 
-            const randomTop = Math.max(0, Math.min(maxTop, Math.random() * (viewportHeight - elementHeight)));
-            const randomLeft = Math.max(0, Math.min(maxLeft, Math.random() * (viewportWidth - elementWidth)));
+    const randomTop = Math.max(0, Math.min(maxTop, Math.random() * (viewportHeight - elementHeight)));
+    const randomLeft = Math.max(0, Math.min(maxLeft, Math.random() * (viewportWidth - elementWidth)));
 
-            element.style.top = randomTop + 'px';
-            element.style.left = randomLeft + 'px';
-        }
+    element.style.top = randomTop + 'px';
+    element.style.left = randomLeft + 'px';
+  }
 
-        const windows = document.querySelectorAll('.window');
+  const windows = document.querySelectorAll('.window');
 
-        windows.forEach(window => {
-            getRandomPosition(window, window.offsetHeight, window.offsetWidth);
-            let isDragging = false;
-            let offsetX, offsetY;
-            let startWidth, startHeight;
+  windows.forEach(window => {
+    getRandomPosition(window, window.offsetHeight, window.offsetWidth);
 
-            window.querySelector('.window-title').addEventListener('mousedown', (e) => {
-                isDragging = true;
-                offsetX = window.offsetLeft - e.clientX;
-                offsetY = window.offsetTop - e.clientY;
-                startWidth = window.offsetWidth;
-                startHeight = window.offsetHeight;
-            });
+    let isDragging = false;
+    let startX, startY;
+    let offsetX, offsetY;
 
-            document.addEventListener('mousemove', (e) => {
-                if (!isDragging) return;
-                window.style.left = (e.clientX + offsetX) + 'px';
-                window.style.top = (e.clientY + offsetY) + 'px';
-                // Prevents accidental resizing during drag
-            });
+    window.querySelector('.window-title').addEventListener('mousedown', handleDragStart);
+    window.querySelector('.window-title').addEventListener('touchstart', handleDragStart);
 
-            document.addEventListener('mouseup', () => {
-                isDragging = false;
-            });
-        });
-    </script>
+    function handleDragStart(e) {
+      isDragging = true;
+
+      // Get initial position based on touch or mouse event
+      startX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+      startY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
+      offsetX = window.offsetLeft - startX;
+      offsetY = window.offsetTop - startY;
+    }
+
+    document.addEventListener('mousemove', handleDragMove);
+    document.addEventListener('touchmove', handleDragMove);
+
+    function handleDragMove(e) {
+      if (!isDragging) return; 1 
+
+      // Get current position based on touch or mouse event
+      const currentX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+      const currentY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
+
+      // Calculate new position
+      const newLeft = currentX + offsetX;
+      const newTop = currentY + offsetY;
+
+      window.style.left = newLeft + 'px';
+      window.style.top = newTop + 'px';
+    }
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+    document.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+  });
+</script>
 
 </body>
 </html>
