@@ -265,6 +265,21 @@
         </div>
 </template>
 
+<template id="spotify-window-template">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 400px; height: 400px;">
+            <div class="window-title">Spotify Playlist
+                <div class="window-controls">
+                    <div class="window-button minimize">—</div>
+                    <div class="window-button maximize">□</div>
+                    <div class="window-button close">✖</div>
+                </div>
+            </div>
+            <div class="mt-5" style="height: 90%; width: 100%">
+              <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5Mcma2Lu0D7N4HqJuXr5AR?utm_source=generator" width="100%" height="100%" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+  </template>
+
   <p><b>Games:</b></p>
 <button onclick="createminecraftWindow()" style="display: flex; align-items: center; border: 1px solid black;">
   <img src="https://eaglercraft.q13x.com/favicon.ico" style="height: 20px; margin-right: 5px;">
@@ -315,6 +330,10 @@
 <button onclick="createGoogleWindow()" style="display: flex; align-items: center; border: 1px solid black;">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/480px-Google_%22G%22_logo.svg.png" style="height: 20px; margin-right: 5px;">
   Google (Non-Proxy)
+</button>
+<button onclick="createspotifyWindow()" style="display: flex; align-items: center; border: 1px solid black;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/1982px-Spotify_icon.svg.png" style="height: 20px; margin-right: 5px;">
+  Spotify Playlist
 </button>
 <button onclick="createnotepadWindow()" style="display: flex; align-items: center; border: 1px solid black;">
   <img src="https://github.com/Cyquna/My-Cyber-Space/blob/main/notepad.png?raw=true" style="height: 20px; margin-right: 5px;">
@@ -373,6 +392,62 @@
       body.style.backgroundImage = `url(${savedImageUrl})`;
     }
   });
+</script>
+
+<script>
+  function createspotifyWindow() {
+    const template = document.getElementById('spotify-window-template');
+    const clone = template.content.cloneNode(true);
+    const window = clone.querySelector('.window');
+
+    // Append the cloned window to the body
+    document.body.appendChild(window);
+
+    // Add drag and drop functionality
+    let isDragging = false;
+    let offsetX, offsetY;
+    let startWidth, startHeight;
+
+    window.querySelector('.window-title').addEventListener('mousedown', (e) => {
+      isDragging = true;
+      offsetX = window.offsetLeft - e.clientX;
+      offsetY = window.offsetTop - e.clientY;
+      startWidth = window.offsetWidth;
+      startHeight = window.offsetHeight;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      window.style.left = (e.clientX + offsetX) + 'px';
+      window.style.top = (e.clientY + offsetY) + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    // Add minimize, maximize, and close button functionality
+    const minimizeButton = window.querySelector('.minimize');
+    const maximizeButton = window.querySelector('.maximize');
+    const closeButton = window.querySelector('.close');
+
+    minimizeButton.addEventListener('click', () => {
+      // Implement minimize functionality (e.g., hide the window)
+    });
+
+    maximizeButton.addEventListener('click', () => {
+      // Implement maximize functionality (e.g., make the window full screen)
+    });
+
+    closeButton.addEventListener('click', () => {
+      window.remove();
+    });
+
+    // Trigger the window positioning and resizing logic
+    getRandomPosition(window, window.offsetHeight, window.offsetWidth);
+  }
+
+  // ... (existing getRandomPosition function)
 </script>
 
 <script>
@@ -1444,15 +1519,15 @@ displayTime();
             </div>
         </div>
 
-        <div class="window w-96 absolute" id="friendsWindow">
-            <div class="window-title">Spotify 
+        <div class="window w-96 absolute" id="friendsWindow" style="width: 400px; height: 400px;">
+            <div class="window-title">Spotify Playlist
                 <div class="window-controls">
                     <div class="window-button minimize">—</div>
                     <div class="window-button maximize">□</div>
                     <div class="window-button close">✖</div>
                 </div>
             </div>
-            <div class="mt-5" style="height: 90%;">
+            <div class="mt-5" style="height: 90%; width: 100%">
               <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5Mcma2Lu0D7N4HqJuXr5AR?utm_source=generator" width="100%" height="100%" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
         </div>
