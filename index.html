@@ -249,6 +249,22 @@
             </div>
         </div>
 </template>
+
+<template id="camera-window-template">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 400px; height: 600px;">
+            <div class="window-title">Camera
+                <div class="window-controls">
+                    <div class="window-button minimize">—</div>
+                    <div class="window-button maximize">□</div>
+                    <div class="window-button close">✖</div>
+                </div>
+            </div>
+            <div class="mt-5" style="height: 90%;">
+              <iframe src="https://cyquna.github.io/My-Cyber-Space/camera/" width="100%" height="100%" allow="camera; microphone"></iframe>
+            </div>
+        </div>
+</template>
+
   <p><b>Games:</b></p>
 <button onclick="createminecraftWindow()" style="display: flex; align-items: center; border: 1px solid black;">
   <img src="https://eaglercraft.q13x.com/favicon.ico" style="height: 20px; margin-right: 5px;">
@@ -259,41 +275,41 @@
   Block Blast
   </button>
 <button onclick="creategamesWindow()" style="display: flex; align-items: center; border: 1px solid black;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Video-Game-Controller-Icon-IDV-green.svg/120px-Video-Game-Controller-Icon-IDV-green.svg.png" style="height: 20px; margin-right: 5px;">
+  <img src="https://raw.githubusercontent.com/Cyquna/My-Cyber-Space/refs/heads/main/games.png" style="height: 20px; margin-right: 5px;">
   Games
 </button>
 <button onclick="creategames2Window()" style="display: flex; align-items: center; border: 1px solid black;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Video-Game-Controller-Icon-IDV-green.svg/120px-Video-Game-Controller-Icon-IDV-green.svg.png" style="height: 20px; margin-right: 5px;">
+  <img src="https://raw.githubusercontent.com/Cyquna/My-Cyber-Space/refs/heads/main/games.png" style="height: 20px; margin-right: 5px;">
   Even MORE Games!
   </button>
 <button onclick="creategames3Window()" style="display: flex; align-items: center; border: 1px solid black;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Video-Game-Controller-Icon-IDV-green.svg/120px-Video-Game-Controller-Icon-IDV-green.svg.png" style="height: 20px; margin-right: 5px;">
+  <img src="https://raw.githubusercontent.com/Cyquna/My-Cyber-Space/refs/heads/main/games.png" style="height: 20px; margin-right: 5px;">
   MORE More Games
   </button>
   <p><b>Proxys:</b></p>
 <button onclick="createproxyWindow()" style="display: flex; align-items: center; border: 1px solid black;">
-  <img src="https://static.vecteezy.com/system/resources/thumbnails/041/463/982/small_2x/web-browser-icon-3d-render-png.png" style="height: 20px; margin-right: 5px;">
+  <img src="https://raw.githubusercontent.com/Cyquna/My-Cyber-Space/refs/heads/main/internet.png" style="height: 20px; margin-right: 5px;">
   Interstellar Proxy
   </button>
 <button onclick="creatediscordWindow()" style="display: flex; align-items: center; border: 1px solid black;">
-  <img src="https://static.vecteezy.com/system/resources/thumbnails/041/463/982/small_2x/web-browser-icon-3d-render-png.png" style="height: 20px; margin-right: 5px;">
+  <img src="https://raw.githubusercontent.com/Cyquna/My-Cyber-Space/refs/heads/main/internet.png" style="height: 20px; margin-right: 5px;">
   Shuttle Proxy
   </button> 
 <button onclick="createrammerWindow()" style="display: flex; align-items: center; border: 1px solid black;">
-  <img src="https://static.vecteezy.com/system/resources/thumbnails/041/463/982/small_2x/web-browser-icon-3d-render-png.png" style="height: 20px; margin-right: 5px;">
+  <img src="https://raw.githubusercontent.com/Cyquna/My-Cyber-Space/refs/heads/main/internet.png" style="height: 20px; margin-right: 5px;">
   Rammerhead Proxy
   </button> 
 <button onclick="createutopiaWindow()" style="display: flex; align-items: center; border: 1px solid black;">
-  <img src="https://static.vecteezy.com/system/resources/thumbnails/041/463/982/small_2x/web-browser-icon-3d-render-png.png" style="height: 20px; margin-right: 5px;">
+  <img src="https://raw.githubusercontent.com/Cyquna/My-Cyber-Space/refs/heads/main/internet.png" style="height: 20px; margin-right: 5px;">
   Utopia Proxy
   </button> 
 <button onclick="createdogeWindow()" style="display: flex; align-items: center; border: 1px solid black;">
-  <img src="https://static.vecteezy.com/system/resources/thumbnails/041/463/982/small_2x/web-browser-icon-3d-render-png.png" style="height: 20px; margin-right: 5px;">
+  <img src="https://raw.githubusercontent.com/Cyquna/My-Cyber-Space/refs/heads/main/internet.png" style="height: 20px; margin-right: 5px;">
   Doge Proxy
   </button> 
   <p><b>Apps:</b></p>
 <button onclick="creategroupchatWindow()" style="display: flex; align-items: center; border: 1px solid black;">
-  <img src="https://iconarchive.com/download/i86037/graphicloads/100-flat-2/chat-2.ico" style="height: 20px; margin-right: 5px;">
+  <img src="https://raw.githubusercontent.com/Cyquna/My-Cyber-Space/refs/heads/main/groupchat.png" style="height: 20px; margin-right: 5px;">
   Cyber Space Groupchat
   </button> 
 <button onclick="createGoogleWindow()" style="display: flex; align-items: center; border: 1px solid black;">
@@ -301,16 +317,20 @@
   Google (Non-Proxy)
 </button>
 <button onclick="createnotepadWindow()" style="display: flex; align-items: center; border: 1px solid black;">
-  <img src="https://cdn-icons-png.flaticon.com/512/4438/4438839.png" style="height: 20px; margin-right: 5px;">
+  <img src="https://github.com/Cyquna/My-Cyber-Space/blob/main/notepad.png?raw=true" style="height: 20px; margin-right: 5px;">
   Notepad
   </button> 
 <button onclick="createcalcWindow()" style="display: flex; align-items: center; border: 1px solid black;">
-  <img src="https://images.dwncdn.net/images/t_app-icon-l/p/f68c5b0c-ad12-4045-83c6-9bb4e6cfcc5a/4076588680/2053_4-10074456-iconimg118038.png" style="height: 20px; margin-right: 5px;">
+  <img src="https://github.com/Cyquna/My-Cyber-Space/blob/main/calculator.png?raw=true" style="height: 20px; margin-right: 5px;">
   Calculator
   </button>
 <button onclick="createpaintWindow()" style="display: flex; align-items: center; border: 1px solid black;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Microsoft_Paint.svg/2048px-Microsoft_Paint.svg.png" style="height: 20px; margin-right: 5px;">
+  <img src="https://github.com/Cyquna/My-Cyber-Space/blob/main/paint.png?raw=true" style="height: 20px; margin-right: 5px;">
   MS-Paint
+  </button>
+<button onclick="createcameraWindow()" style="display: flex; align-items: center; border: 1px solid black;">
+  <img src="https://raw.githubusercontent.com/Cyquna/My-Cyber-Space/refs/heads/main/camera.png" style="height: 20px; margin-right: 5px;">
+  Camera
   </button>
 <div>
   <p><b>Custom Wallpaper:</b></p>
@@ -358,6 +378,62 @@
 <script>
   function createblockWindow() {
     const template = document.getElementById('block-window-template');
+    const clone = template.content.cloneNode(true);
+    const window = clone.querySelector('.window');
+
+    // Append the cloned window to the body
+    document.body.appendChild(window);
+
+    // Add drag and drop functionality
+    let isDragging = false;
+    let offsetX, offsetY;
+    let startWidth, startHeight;
+
+    window.querySelector('.window-title').addEventListener('mousedown', (e) => {
+      isDragging = true;
+      offsetX = window.offsetLeft - e.clientX;
+      offsetY = window.offsetTop - e.clientY;
+      startWidth = window.offsetWidth;
+      startHeight = window.offsetHeight;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      window.style.left = (e.clientX + offsetX) + 'px';
+      window.style.top = (e.clientY + offsetY) + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    // Add minimize, maximize, and close button functionality
+    const minimizeButton = window.querySelector('.minimize');
+    const maximizeButton = window.querySelector('.maximize');
+    const closeButton = window.querySelector('.close');
+
+    minimizeButton.addEventListener('click', () => {
+      // Implement minimize functionality (e.g., hide the window)
+    });
+
+    maximizeButton.addEventListener('click', () => {
+      // Implement maximize functionality (e.g., make the window full screen)
+    });
+
+    closeButton.addEventListener('click', () => {
+      window.remove();
+    });
+
+    // Trigger the window positioning and resizing logic
+    getRandomPosition(window, window.offsetHeight, window.offsetWidth);
+  }
+
+  // ... (existing getRandomPosition function)
+</script>
+
+<script>
+  function createcameraWindow() {
+    const template = document.getElementById('camera-window-template');
     const clone = template.content.cloneNode(true);
     const window = clone.querySelector('.window');
 
