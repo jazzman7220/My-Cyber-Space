@@ -24,7 +24,7 @@
   <img src="https://iconape.com/wp-content/png_logo_vector/windows-start-button-logo.png" style="width: 70px; height: 30px;">
 </button>
 
-<div id="overlay" style="display: none; position: fixed; background-color: grey; padding: 20px; bottom: 50px; width: 350px; height: 500px; border: 1px solid white">
+<div id="overlay" style="display: none; position: fixed; background-color: grey; padding: 20px; bottom: 50px; width: 350px; height: 400px; border: 1px solid white; overflow-y: scroll;">
 <template id="google-window-template">
   <div class="window w-96 absolute" id="friendsWindow" style="width: 1000px; height: 700px;">
             <div class="window-title">Google (Most websites will refuse to connect, use the proxy to fix!)
@@ -41,7 +41,7 @@
 </template>
 
 <template id="games-window-template">
-  <div class="window w-96 absolute" id="friendsWindow" style="width: 100%; height: 100%;">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 500px; height: 500px;">
             <div class="window-title">Games
                 <div class="window-controls">
                     <div class="window-button minimize">—</div>
@@ -235,6 +235,42 @@
         </div>
 </template>
 
+<template id="block-window-template">
+  <div class="window w-96 absolute" id="friendsWindow" style="width: 400px; height: 600px;">
+            <div class="window-title">Block Blast
+                <div class="window-controls">
+                    <div class="window-button minimize">—</div>
+                    <div class="window-button maximize">□</div>
+                    <div class="window-button close">✖</div>
+                </div>
+            </div>
+            <div class="mt-5" style="height: 90%;">
+              <iframe src="https://blockblastonline.com/game/block-blast-v1/" width="100%" height="100%"></iframe>
+            </div>
+        </div>
+</template>
+  <p><b>Games:</b></p>
+<button onclick="createminecraftWindow()" style="display: flex; align-items: center; border: 1px solid black;">
+  <img src="https://eaglercraft.q13x.com/favicon.ico" style="height: 20px; margin-right: 5px;">
+  Minecraft 1.8.8
+  </button>
+<button onclick="createblockWindow()" style="display: flex; align-items: center; border: 1px solid black;">
+  <img src="https://blockblastonline.com/upload/imgs/options/block-blast.jpeg" style="height: 20px; margin-right: 5px;">
+  Block Blast
+  </button>
+<button onclick="creategamesWindow()" style="display: flex; align-items: center; border: 1px solid black;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Video-Game-Controller-Icon-IDV-green.svg/120px-Video-Game-Controller-Icon-IDV-green.svg.png" style="height: 20px; margin-right: 5px;">
+  Games
+</button>
+<button onclick="creategames2Window()" style="display: flex; align-items: center; border: 1px solid black;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Video-Game-Controller-Icon-IDV-green.svg/120px-Video-Game-Controller-Icon-IDV-green.svg.png" style="height: 20px; margin-right: 5px;">
+  Even MORE Games!
+  </button>
+<button onclick="creategames3Window()" style="display: flex; align-items: center; border: 1px solid black;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Video-Game-Controller-Icon-IDV-green.svg/120px-Video-Game-Controller-Icon-IDV-green.svg.png" style="height: 20px; margin-right: 5px;">
+  MORE More Games
+  </button>
+  <p><b>Proxys:</b></p>
 <button onclick="createproxyWindow()" style="display: flex; align-items: center; border: 1px solid black;">
   <img src="https://static.vecteezy.com/system/resources/thumbnails/041/463/982/small_2x/web-browser-icon-3d-render-png.png" style="height: 20px; margin-right: 5px;">
   Interstellar Proxy
@@ -255,30 +291,15 @@
   <img src="https://static.vecteezy.com/system/resources/thumbnails/041/463/982/small_2x/web-browser-icon-3d-render-png.png" style="height: 20px; margin-right: 5px;">
   Doge Proxy
   </button> 
-<button onclick="createGoogleWindow()" style="display: flex; align-items: center; border: 1px solid black;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/480px-Google_%22G%22_logo.svg.png" style="height: 20px; margin-right: 5px;">
-  Google (Non-Proxy)
-</button>
-<button onclick="creategamesWindow()" style="display: flex; align-items: center; border: 1px solid black;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Video-Game-Controller-Icon-IDV-green.svg/120px-Video-Game-Controller-Icon-IDV-green.svg.png" style="height: 20px; margin-right: 5px;">
-  Games
-</button>
-<button onclick="creategames2Window()" style="display: flex; align-items: center; border: 1px solid black;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Video-Game-Controller-Icon-IDV-green.svg/120px-Video-Game-Controller-Icon-IDV-green.svg.png" style="height: 20px; margin-right: 5px;">
-  Even MORE Games!
-  </button>
-<button onclick="creategames3Window()" style="display: flex; align-items: center; border: 1px solid black;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Video-Game-Controller-Icon-IDV-green.svg/120px-Video-Game-Controller-Icon-IDV-green.svg.png" style="height: 20px; margin-right: 5px;">
-  MORE More Games
-  </button>
-<button onclick="createminecraftWindow()" style="display: flex; align-items: center; border: 1px solid black;">
-  <img src="https://eaglercraft.q13x.com/favicon.ico" style="height: 20px; margin-right: 5px;">
-  Minecraft 1.8.8
-  </button> 
+  <p><b>Apps:</b></p>
 <button onclick="creategroupchatWindow()" style="display: flex; align-items: center; border: 1px solid black;">
   <img src="https://iconarchive.com/download/i86037/graphicloads/100-flat-2/chat-2.ico" style="height: 20px; margin-right: 5px;">
   Cyber Space Groupchat
   </button> 
+<button onclick="createGoogleWindow()" style="display: flex; align-items: center; border: 1px solid black;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/480px-Google_%22G%22_logo.svg.png" style="height: 20px; margin-right: 5px;">
+  Google (Non-Proxy)
+</button>
 <button onclick="createnotepadWindow()" style="display: flex; align-items: center; border: 1px solid black;">
   <img src="https://cdn-icons-png.flaticon.com/512/4438/4438839.png" style="height: 20px; margin-right: 5px;">
   Notepad
@@ -292,11 +313,11 @@
   MS-Paint
   </button>
 <div>
-<p>Change your wallpaper!!</p>
+  <p><b>Custom Wallpaper:</b></p>
 <input type="file" id="fileInput" style="border: 1px solid black; opacity: 1; cursor: pointer; text-align: left;">
 <label for="fileInput" style="cursor: pointer;"></label> <br>
-<button id="uploadButton" style="border: 1px solid black; cursor: pointer;">Apply Image</button>
-<button id="removeButton" style="border: 1px solid black; cursor: pointer;">Remove Image</button>
+<button id="uploadButton" style="border: 1px solid black; cursor: pointer;">Apply</button>
+<button id="removeButton" style="border: 1px solid black; cursor: pointer;">Remove</button>
   </div>
 </div>
 
@@ -332,6 +353,62 @@
       body.style.backgroundImage = `url(${savedImageUrl})`;
     }
   });
+</script>
+
+<script>
+  function createblockWindow() {
+    const template = document.getElementById('block-window-template');
+    const clone = template.content.cloneNode(true);
+    const window = clone.querySelector('.window');
+
+    // Append the cloned window to the body
+    document.body.appendChild(window);
+
+    // Add drag and drop functionality
+    let isDragging = false;
+    let offsetX, offsetY;
+    let startWidth, startHeight;
+
+    window.querySelector('.window-title').addEventListener('mousedown', (e) => {
+      isDragging = true;
+      offsetX = window.offsetLeft - e.clientX;
+      offsetY = window.offsetTop - e.clientY;
+      startWidth = window.offsetWidth;
+      startHeight = window.offsetHeight;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      window.style.left = (e.clientX + offsetX) + 'px';
+      window.style.top = (e.clientY + offsetY) + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    // Add minimize, maximize, and close button functionality
+    const minimizeButton = window.querySelector('.minimize');
+    const maximizeButton = window.querySelector('.maximize');
+    const closeButton = window.querySelector('.close');
+
+    minimizeButton.addEventListener('click', () => {
+      // Implement minimize functionality (e.g., hide the window)
+    });
+
+    maximizeButton.addEventListener('click', () => {
+      // Implement maximize functionality (e.g., make the window full screen)
+    });
+
+    closeButton.addEventListener('click', () => {
+      window.remove();
+    });
+
+    // Trigger the window positioning and resizing logic
+    getRandomPosition(window, window.offsetHeight, window.offsetWidth);
+  }
+
+  // ... (existing getRandomPosition function)
 </script>
 
 <script>
@@ -1335,7 +1412,7 @@ displayTime();
                     <a href="https://www.instagram.com/squagie/" target="_blank">squag (MY BOYFRIEND)</a>
                 </div>
                 <div class="flex items-center mb-4">
-                    <img src="https://cdn.discordapp.com/avatars/541370981785010196/5cf9cd7757e647338303e43d7fd00afa.webp?size=1024&format=webp" alt="Friend 2" class="friend-img">
+                    <img src="https://cdn.discordapp.com/avatars/541370981785010196/271ff944a8770b1919037edc98c16dfe.webp?size=4096" alt="Friend 2" class="friend-img">
                     <a href="https://www.instagram.com/sal3m.0nline/" target="_blank">𝕾𝖆𝖑𝖊𝖒☣</a>
                 </div>
                 <div class="flex items-center">
